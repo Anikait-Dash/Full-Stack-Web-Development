@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Student Report Card</title>
+	    <style>
+    	    body 
+          {
+        	    font-family: Arial, sans-serif;
+            	background: linear-gradient(to right, #4e73df, #1cc88a);
+	            display: flex;
+    	        justify-content: center;
+        	    align-items: center;
+            	height: 100vh;
+	            margin: 0;
+    	    }
+
+        	.wrapper 
+          {
+            	display: flex;
+	            gap: 40px;
+    	    }
+
+        	.container 
+          {
+            	background: white;
+	            padding: 30px;
+    	        border-radius: 10px;
+        	    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            	width: 350px;
+	            text-align: center;
+    	    }
+
+        	input 
+          {
+            	width: 90%;
+	            padding: 8px;
+    	        margin: 5px 0;
+        	}
+
+	        .subjects 
+          {
+    	        display: grid;
+        	    grid-template-columns: repeat(2, 1fr);
+            	gap: 10px;
+	            margin-top: 10px;
+    	    }
+
+	        .subjects div 
+          {
+    	        text-align: left;
+        	    font-size: 14px;
+	        }
+
+    	    button 
+          {
+        	    margin-top: 15px;
+            	padding: 10px 20px;
+	            background: #4e73df;
+    	        color: white;
+        	    border: none;
+            	border-radius: 5px;
+	            cursor: pointer;
+    	    }
+
+	        button:hover 
+          {
+    	        background: #2e59d9;
+        	}
+
+	        .report-card 
+          {
+	            opacity: 0;
+    	        visibility: hidden;
+        	    transition: opacity 0.8s ease;
+        	}
+
+	        .report-card.show 
+          {
+    	        opacity: 1;
+        	    visibility: visible;
+        	}
+
+	        .value-box {
+    	        width: 90%;
+        	    padding: 8px;
+            	margin: 5px 0;
+	            background: #f8f9fc;
+    	        border: 1px solid #ccc;
+        	    border-radius: 4px;
+        	}
+    	</style>
+	    <script>
+    	    function generateReport() 
+          {
+
+	            var name = document.getElementById("name").value;
+    	        var roll = document.getElementById("roll").value;
+
+	            var subjects = ["phy","chem","math","eng","cs","bio"];
+    	        var total = 0;
+
+            	for (var i = 0; i < subjects.length; i++) 
+            	{
+                	var mark = parseFloat(document.getElementById(subjects[i]).value);
+	                if (isNaN(mark)) 
+	                {
+    	                alert("Please enter valid marks in all subjects.");
+        	            return;
+            	    }
+                	total += mark;
+            	}
+
+	            var average = total / 6;
+     	        var grade;
+
+        	    if (average >= 90) grade = "A+";
+            	else if (average >= 75) grade = "A";
+            	else if (average >= 60) grade = "B";
+            	else if (average >= 50) grade = "C";
+            	else grade = "Fail";
+
+	            // Fill Report Card
+    	        document.getElementById("rName").innerHTML = name;
+        	    document.getElementById("rRoll").innerHTML = roll;
+
+	            document.getElementById("rphy").innerHTML = document.getElementById("phy").value;
+    	        document.getElementById("rchem").innerHTML = document.getElementById("chem").value;
+        	    document.getElementById("rmath").innerHTML = document.getElementById("math").value;
+            	document.getElementById("reng").innerHTML = document.getElementById("eng").value;
+	            document.getElementById("rcs").innerHTML = document.getElementById("cs").value;
+    	        document.getElementById("rbio").innerHTML = document.getElementById("bio").value;
+
+	            document.getElementById("rTotal").innerHTML = total;
+    	        document.getElementById("rAverage").innerHTML = average.toFixed(2);
+        	    document.getElementById("rGrade").innerHTML = grade;
+
+	            document.getElementById("report").classList.add("show");
+    	    }
+	    </script>
+	</head>
+	
+	<body>
+		<div class="wrapper">
+
+		    <!-- ENTRY FORM -->
+    		<div class="container">
+		        <h2>Student Entry Form</h2>
+
+        		<input type="text" id="name" placeholder="Enter Name">
+		        <input type="text" id="roll" placeholder="Enter Roll Number">
+
+		        <div class="subjects">
+        		    <div>Physics <input type="number" id="phy"></div>
+		            <div>Chemistry <input type="number" id="chem"></div>
+        	    	<div>Mathematics <input type="number" id="math"></div>
+	            	<div>English <input type="number" id="eng"></div>
+    		        <div>Computer Science <input type="number" id="cs"></div>
+            		<div>Biology <input type="number" id="bio"></div>
+	       		</div>
+		        <button onclick="generateReport()">Submit</button>
+    		</div>
+  			
+  			<!-- REPORT CARD -->
+		    <div class="container report-card" id="report">
+        		<h2>Report Card</h2>
+        			<div class="value-box"><strong>Name:</strong> <span id="rName"></span></div>
+		        	<div class="value-box"><strong>Roll No:</strong> <span id="rRoll"></span></div>
+        			<div class="subjects">
+        	    		<div>Physics <div class="value-box" id="rphy"></div></div>
+    	    		    <div>Chemistry <div class="value-box" id="rchem"></div></div>
+	    		        <div>Mathematics <div class="value-box" id="rmath"></div></div>
+		            	<div>English <div class="value-box" id="reng"></div></div>
+	    		        <div>Computer Science <div class="value-box" id="rcs"></div></div>
+	        	    	<div>Biology <div class="value-box" id="rbio"></div></div>
+        			</div>
+    	    	<div class="value-box"><strong>Total:</strong> <span id="rTotal"></span></div>
+	        	<div class="value-box"><strong>Average:</strong> <span id="rAverage"></span></div>
+        		<div class="value-box"><strong>Grade:</strong> <span id="rGrade"></span></div>
+		    </div>
+		</div>
+	</body>
+</html>
