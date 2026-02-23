@@ -1,0 +1,40 @@
+<!--WAP to input the names of five of your contacts and print them.-->
+<!DOCTYPE html>
+<html>
+	<head>
+	    <title>
+        	Submission of the names of 5 contacts and printing them using Arrays
+    	</title>
+	</head>
+
+	<script>
+		function collectContacts()
+		{
+		    let contacts = [];
+
+		    for(let i = 0; i < 5; i++)
+    		{
+		        contacts[i] = prompt("Enter the name of contact " + (i+1) + " :");
+    		}
+
+		    let result = "<h3>Contact List:</h3>";
+
+		    for(let i = 0; i < 5; i++)
+    		{
+		        result += contacts[i] + "<br>";
+    		}
+
+    		document.getElementById("output").innerHTML = result;
+		}
+	</script>
+
+	<body>
+
+	    <button onclick="collectContacts()">Enter Contacts</button>
+
+	    <br><br>
+
+    	<div id="output"></div>
+
+	</body>
+</html>
