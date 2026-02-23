@@ -1,0 +1,63 @@
+<!--Write a program to take two numbers as input and print the multiplication table -- of those two numbers AND the numbers in between those two numbers.-->
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Multiplication Tables</title>
+	</head>
+
+	<script>
+		function Product()
+		{
+		    var start, end, a, b, c;
+
+		    start = parseInt(document.getElementById("t1").value);
+		    end   = parseInt(document.getElementById("t2").value);
+
+		    var result = "";
+
+		    // Validation
+		    if (isNaN(start) || isNaN(end))
+		    {
+        		document.getElementById("output").innerHTML = "Please enter valid numbers.";
+		        return;
+		    }
+
+		    if (start > end)
+		    {
+        		document.getElementById("output").innerHTML = "Start number must be less than or equal to End number.";
+		        return;
+    		}
+
+		    for(a = start; a <= end; a++)
+		    {
+		        result += "<b>Table of " + a + "</b><br>";
+
+        		for(b = 1; b <= 10; b++)
+		        {
+        		    c = a * b;
+		            result += a + " × " + b + " = " + c + "<br>";
+        		}
+
+		        result += "<br>";
+    		}
+
+		    document.getElementById("output").innerHTML = result;
+		}
+	</script>
+
+	<body>
+    	<form>
+	        <input type="number" placeholder="Start number" id="t1">
+        	<br><br>
+
+    	    <input type="number" placeholder="End number" id="t2">
+	        <br><br>
+
+        	<input type="button" value="Table" onclick="Product()">
+    	</form>
+
+	    <br>
+
+    	<div id="output"></div>
+	</body>
+</html>
