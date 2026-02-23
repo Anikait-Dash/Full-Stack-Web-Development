@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Multiplication Table</title>
+	</head>
+
+	<script>
+		function Product()
+		{
+	    	var a, b, c;
+    		a = parseInt(document.getElementById("t1").value);
+
+		    var result = "";
+
+		    for(b = 1; b <= 10; b++)
+    		{
+		        c = a * b;
+        		result += a + " * " + b + " = " + c + "<br>";
+    		}
+
+		    document.getElementById("output").innerHTML = result;
+		}
+	</script>
+
+	<body>
+    	<form>
+        	<input type="number" placeholder="Enter a number" id="t1">
+        	
+        	<br><br>
+        
+        	<input type="button" value="Table" onclick="Product()">
+    	</form>
+
+	    <br>
+
+    	<div id="output"></div>
+	</body>
+</html>
