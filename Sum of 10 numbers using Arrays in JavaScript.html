@@ -1,0 +1,32 @@
+<!--WAP to input 10 integers and print their sum.-->
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Sum of 10 Integers using Array</title>
+	</head>
+
+	<script>
+		function calculateSum()
+		{
+    		let numbers = [];
+    		let sum = 0;
+    		for(let i = 0; i < 10; i++)
+    		{
+        		numbers[i] = parseInt(prompt("Enter integer " + (i+1) + " :"));
+
+        		if(isNaN(numbers[i]))
+        		{
+        		    alert("Invalid input! Please enter integers only.");
+		            return;
+        		}
+		        sum += numbers[i];
+    		}
+    		document.getElementById("output").innerHTML = "The sum of the 10 integers is: <b>" + sum + "</b>";
+		}
+	</script>
+	<body>
+		<button onclick="calculateSum()">Enter Numbers</button>
+		<br><br>
+		<div id="output"></div>
+	</body>
+</html>
