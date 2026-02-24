@@ -1,0 +1,56 @@
+<!--Write a program to input 10 integers and calculate the sum of the -->
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Sum and Average of Odd and Even Numbers</title>
+	</head>
+
+	<script>
+		function calculate()
+		{
+		    let numbers = [];
+    
+		    let sumEven = 0, sumOdd = 0;
+    		
+    		let countEven = 0, countOdd = 0;
+
+		    for(let i = 0; i < 10; i++)
+    		{
+        		numbers[i] = parseInt(prompt("Enter integer " + (i+1) + " :"));
+
+		        if(isNaN(numbers[i]))
+        		{
+            		alert("Invalid input! Please enter integers only.");
+		            return;
+        		}
+
+		        if(numbers[i] % 2 == 0)
+        		{
+		            sumEven += numbers[i];
+        		    countEven++;
+        		}
+		        else
+        		{
+		            sumOdd += numbers[i];
+        		    countOdd++;
+        		}
+		    }
+
+		    let avgEven = (countEven != 0) ? (sumEven / countEven) : 0;
+    		
+    		let avgOdd  = (countOdd != 0) ? (sumOdd / countOdd) : 0;
+
+		    document.getElementById("output").innerHTML = "<b>Even Numbers:</b><br>" + "Sum = " + sumEven + "<br>" + "Average = " + avgEven + "<br><br>" + "<b>Odd Numbers:</b><br>" + "Sum = " + sumOdd + "<br>" + "Average = " + avgOdd;
+		}
+	</script>
+
+	<body>
+
+		<button onclick="calculate()">Enter Numbers</button>
+
+		<br><br>
+
+		<div id="output"></div>
+
+	</body>
+</html>
