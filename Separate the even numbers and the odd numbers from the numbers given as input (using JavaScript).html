@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Separate Odd and Even Numbers</title>
+    </head>
+
+    <script>
+        function separateNumbers()
+        {
+            let numbers = [];
+            let evenNumbers = [];
+            let oddNumbers = [];
+
+            for(let i = 0; i < 10; i++)
+            {
+                numbers[i] = parseInt(prompt("Enter integer " + (i+1) + " :"));
+
+                if(isNaN(numbers[i]))
+                {
+                    alert("Invalid input! Please enter integers only.");
+                    return;
+                }
+
+                if(numbers[i] % 2 == 0)
+                {
+                    evenNumbers.push(numbers[i]);
+                }
+                else
+                {
+                    oddNumbers.push(numbers[i]);
+                }
+            }
+            document.getElementById("output").innerHTML = "<b>Even Numbers:</b> " + evenNumbers.join(", ") + "<br><br>" + "<b>Odd Numbers:</b> " + oddNumbers.join(", ");
+        }
+    </script>
+    <body>
+        <h2>
+            Separate Odd and Even Numbers
+        </h2>
+
+        <button onclick="separateNumbers()">
+            Enter Numbers
+        </button>
+
+        <br><br>
+        
+        <div id="output"></div>
+    </body>
+</html>
