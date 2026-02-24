@@ -1,0 +1,58 @@
+<!--Write a program to input any 10 integers. Separate all the positve integers, the negative integera and zero into their respective arrays-->
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Separate Positive, Negative and Zero</title>
+	</head>
+
+	<script>
+		function separateNumbers()
+		{
+		    let numbers = [];
+		    let PositiveNumbers = [];
+		    let NegativeNumbers = [];
+		    let ZeroNumbers = [];
+
+		    for(let i = 0; i < 10; i++)
+   			{
+		        numbers[i] = parseInt(prompt("Enter integer " + (i+1) + " :"));
+
+		        if(isNaN(numbers[i]))
+       			{
+		            alert("Invalid input! Please enter integers only.");
+           			return;
+       			}
+
+		        if(numbers[i] > 0)
+       			{
+		            PositiveNumbers.push(numbers[i]);
+       			}
+		        else if(numbers[i] < 0)
+       			{
+		            NegativeNumbers.push(numbers[i]);
+       			}
+		        else
+       			{
+		            ZeroNumbers.push(numbers[i]);
+       			}
+   			}
+	    	document.getElementById("output").innerHTML = "<b>Positive Numbers:</b> " + PositiveNumbers.join(", ") + "<br><br>" + "<b>Negative Numbers:</b> " + NegativeNumbers.join(", ") + "<br><br>" + "<b>Zero:</b> " + ZeroNumbers.join(", ");
+		}
+	</script>
+
+	<body>
+
+		<h2>
+		    Separate Positive, Negative and Zero
+		</h2>
+
+		<button onclick="separateNumbers()">
+		    Enter Numbers
+		</button>
+
+		<br><br>
+
+		<div id="output"></div>
+
+	</body>
+</html>
