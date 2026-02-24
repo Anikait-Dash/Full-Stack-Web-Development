@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			The numbers from 1 to 100 are printed here. 
+		</title>
+	</head>
+
+	<script>
+		function For()
+		{
+			var n
+
+			for (n = 1; n <= 100; n++) 
+			{
+				if(n % 2 == 0)
+					document.getElementById("output").innerHTML += n + " ";
+           	}
+        }
+    </script>
+
+	<body>
+
+    	<h2>
+    		Print Even Numbers from 1 to 100
+    	</h2>
+
+	    <button onclick = "For()">
+	    	Print Numbers
+	    </button>
+
+	    <p id="output"></p>
+
+	</body>
+</html>
