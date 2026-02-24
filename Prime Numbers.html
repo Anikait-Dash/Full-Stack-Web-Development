@@ -1,0 +1,51 @@
+<!--Write a program to check whether the given number is a prime number or not.-->
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>
+        	The prime numbers from 1 to 100 are printed here.
+    	</title>
+	</head>
+
+	<script>
+		function printPrimes()
+		{
+		    let output = "";
+
+		    for (let n = 2; n <= 100; n++)
+    		{
+		        let isPrime = true;
+
+		        for (let i = 2; i < n; i++)
+        		{
+		            if (n % i == 0)
+        		    {
+                		isPrime = false;
+            		    break;
+        	    	}
+		        }
+
+		        if (isPrime)
+        		{
+		            output += n + " ";
+        		}
+		    }
+
+		    document.getElementById("output").innerHTML = output;
+		}
+	</script>
+
+	<body>
+
+		<h2>
+	    	Print Prime Numbers from 1 to 100
+		</h2>
+
+		<button onclick="printPrimes()">
+    		Print Prime Numbers
+		</button>
+
+		<p id="output"></p>
+
+	</body>
+</html>
