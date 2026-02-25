@@ -1,0 +1,59 @@
+<!--
+	Write a program to input the following information about a customer 
+		1. Customer Name
+		2. Product bought by the customer
+		3. Price of the product bought by the customer
+
+		and print them.
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Customer Purchase Details</title>
+	</head>
+
+	<script>
+		function displayDetails()
+		{
+		    let customerName = document.getElementById("cname").value;
+		    let productName  = document.getElementById("pname").value;
+		    let price        = parseFloat(document.getElementById("price").value);
+
+		    if(customerName === "" || productName === "" || isNaN(price))
+    		{
+		        document.getElementById("output").innerHTML = "Please enter valid details in all fields.";
+        		return;
+    		}
+
+		    document.getElementById("output").innerHTML = "<h3>Customer Details</h3>" +	"<b>Customer Name:</b> " + customerName + "<br><br>" + "<b>Product Bought:</b> " + productName + "<br><br>" + "<b>Price:</b> ₹" + price.toFixed(2);
+		}
+	</script>
+
+	<body>
+
+		<h2>Enter Customer Purchase Details</h2>
+
+		Customer Name:
+		<input type="text" id="cname">
+
+		<br><br>
+
+		Product Name:
+		<input type="text" id="pname">
+
+		<br><br>
+
+		Price:
+		<input type="number" id="price">
+
+		<br><br>
+
+		<button onclick="displayDetails()">Submit</button>
+
+		<br><br>
+
+		<div id="output">
+		</div>
+	</body>
+</html>
