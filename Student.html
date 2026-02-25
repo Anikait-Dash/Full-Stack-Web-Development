@@ -1,0 +1,84 @@
+<!--
+    Write a program to enter the names of three subjects studied by a student and the marks scored in those three subjects. Hence calculate the total percentage, average and the grade. Assume that the total marks is 250 (100 + 100 + 50)
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Result Calculator</title>
+    </head>
+
+    <script>
+        function calculateResult()
+        {
+            let sub1 = document.getElementById("sub1").value;
+            let sub2 = document.getElementById("sub2").value;
+        let sub3 = document.getElementById("sub3").value;
+
+            let mark1 = parseFloat(document.getElementById("mark1").value);
+            let mark2 = parseFloat(document.getElementById("mark2").value);
+            let mark3 = parseFloat(document.getElementById("mark3").value);
+
+            if(sub1 === "" || sub2 === "" || sub3 === "" || isNaN(mark1) || isNaN(mark2) || isNaN(mark3))
+            {
+                document.getElementById("output").innerHTML = "Please enter valid subject names and marks.";
+                return;
+            }
+
+            let total = mark1 + mark2 + mark3;
+            let percentage = (total / 250) * 100;
+            let average = total / 3;
+
+            let grade = "";
+
+            if(percentage >= 90)
+                grade = "A+";
+            else if(percentage >= 75)
+                grade = "A";
+            else if(percentage >= 60)
+                grade = "B";
+            else if(percentage >= 50)
+                grade = "C";
+            else if(percentage >= 35)
+                grade = "D";
+            else
+                grade = "Fail";
+
+            document.getElementById("output").innerHTML = "<h3>Result</h3>" + "<b>" + sub1 + ":</b> " + mark1 + "<br><br>" + "<b>" + sub2 + ":</b> " + mark2 + "<br><br>" + 
+                "<b>" + sub3 + ":</b> " + mark3 + "<br><br>" + "<b>Total:</b> " + total + " / 250<br><br>" + "<b>Percentage:</b> " + percentage.toFixed(2) + "%<br><br>" + 
+                "<b>Average:</b> " + average.toFixed(2) + "<br><br>" + "<b>Grade:</b> " + grade;
+        }
+    </script>
+
+    <body>
+
+        <h2>Student Result Calculator</h2>
+
+        Subject 1:
+        <input type="text" id="sub1">
+        Marks:
+        <input type="number" id="mark1" max="100">
+
+        <br><br>
+
+        Subject 2:
+        <input type="text" id="sub2">
+        Marks:
+        <input type="number" id="mark2" max="100">
+
+        <br><br>
+
+        Subject 3:
+        <input type="text" id="sub3">
+        Marks:
+        <input type="number" id="mark3" max="50">
+
+        <br><br>
+
+        <button onclick="calculateResult()">Calculate Result</button>
+
+        <br><br>
+
+        <div id="output"></div>
+
+    </body>
+</html>
