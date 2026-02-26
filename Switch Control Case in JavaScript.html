@@ -1,0 +1,57 @@
+<!--Switch Control Statements-->
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Color Change</title>
+	</head>
+
+	<script>
+		function change()
+		{
+		   	var radios = document.getElementsByName("col");
+    		var c = "";
+
+		    for(var i = 0; i < radios.length; i++)
+    		{
+		        if(radios[i].checked)
+       			{
+		            c = radios[i].value;
+       			}
+			}
+
+		    var text = "LAKSHYA INSTITUTE OF TECHNOLOGY";
+
+		    switch(c)
+    		{
+		        case 'r':
+           			document.getElementById("output").innerHTML = "<b style='color:red'>" + text + "</b>";
+			        break;
+
+				case 'b':
+    	   			document.getElementById("output").innerHTML = "<b style='color:blue'>" + text + "</b>";
+        	    	break;
+
+		        case 'g':
+    	   			document.getElementById("output").innerHTML = "<b style='color:green'>" + text + "</b>";
+        	   		break;
+
+		    	default:
+       				alert("Please select a color");
+   			}
+		}
+	</script>
+
+	<body>
+
+		Choose a color:
+		<input type="radio" name="col" value="r"> Red
+		<input type="radio" name="col" value="b"> Blue
+		<input type="radio" name="col" value="g"> Green
+
+		<br><br>
+
+		<button onclick="change()">Change Color</button>
+
+		<p id="output"></p>
+	</body>
+</html>
